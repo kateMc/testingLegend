@@ -45,9 +45,14 @@ foreach ($chartTypes as $chartType)
 
 $categories = array('F', 'G', 'H', 'I');
 $values1    = array(8.2, 3.2, 1.4, 1.2);
+$layout     = new \PhpOffice\PhpWord\Writer\Word2007\Part\ChartLayout();
+// Testing added chartLayout
+$layout->setShowPercent(true);
+$layout->setShowSerName(true);
 
 $chart = $section->addChart('pie', $categories, $values1);
 $chart->getStyle()->setWidth(Converter::inchToEmu(2.5))->setHeight(Converter::inchToEmu(2));
+$chart->addLegend('l');
 $section->addTextBreak();
 
 //// 3D charts
