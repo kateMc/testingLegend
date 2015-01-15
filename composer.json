@@ -1,0 +1,9 @@
+{
+    "name"       : "testing/phpword",
+    "description": "PHP Word",
+    "autoload"   : {
+        "psr-4": {
+            "PhpOffice\\PhpWord\\": {"": "../phpword/src/"}
+        }
+    }
+}
