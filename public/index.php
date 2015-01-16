@@ -25,22 +25,6 @@ $series1     = array(1, 3, 2, 5, 4);
 $series2     = array(3, 1, 7, 2, 6);
 $series3     = array(8, 3, 2, 5, 4);
 
-foreach ($chartTypes as $chartType)
-{
-    $section->addTitle(ucfirst($chartType), 2);
-    $chart = $section->addChart($chartType, $categories, $series1);
-    $chart->getStyle()->setWidth(Converter::inchToEmu(2.5))->setHeight(Converter::inchToEmu(2));
-    if (in_array($chartType, $twoSeries))
-    {
-        $chart->addSeries($categories, $series2);
-    }
-    if (in_array($chartType, $threeSeries))
-    {
-        $chart->addSeries($categories, $series3);
-    }
-    $section->addTextBreak();
-}
-
 // Testing Single Chart
 
 $categories = array('F', 'G', 'H', 'I');
@@ -52,28 +36,8 @@ $layout->setShowSerName(true);
 
 $chart = $section->addChart('pie', $categories, $values1);
 $chart->getStyle()->setWidth(Converter::inchToEmu(2.5))->setHeight(Converter::inchToEmu(2));
-$chart->addLegend('l');
+//$chart->addLegend('l');
 $section->addTextBreak();
-
-//// 3D charts
-$section = $phpWord->addSection(array('breakType' => 'continuous'));
-$section->addTitle(htmlspecialchars('Chart: 3D'), 1);
-$section = $phpWord->addSection(array('colsNum' => 2, 'breakType' => 'continuous'));
-
-$chartTypes  = array('pie', 'bar', 'column', 'line', 'area');
-$multiSeries = array('bar', 'column', 'line', 'area');
-$style       = array('width' => Converter::cmToEmu(5), 'height' => Converter::cmToEmu(4), '3d' => true);
-foreach ($chartTypes as $chartType)
-{
-    $section->addTitle(ucfirst($chartType), 2);
-    $chart = $section->addChart($chartType, $categories, $series1, $style);
-    if (in_array($chartType, $multiSeries))
-    {
-        $chart->addSeries($categories, $series2);
-        $chart->addSeries($categories, $series3);
-    }
-    $section->addTextBreak();
-}
 
 
 // Testing Single Chart - 3D
