@@ -20,7 +20,9 @@ $section->addTitle(htmlspecialchars('Chart: Basic 2D'), 1);
 $categories = array('F', 'G', 'H', 'I');
 $values1    = array(8.2, 3.2, 1.4, 1.2);
 
-$chart = $section->addChart('pie', $categories, $values1);
+$legend = new \PhpOffice\PhpWord\Element\ChartLegend('l', null, true);
+$chart  = $section->addChart('pie', $categories, $values1, null, $legend);
+
 $chart->getStyle()->setWidth(Converter::inchToEmu(2.5))->setHeight(Converter::inchToEmu(2));
 $section->addTextBreak();
 
@@ -33,7 +35,39 @@ $section->addTitle(htmlspecialchars('Chart: 3D'), 1);
 $categories = array('F', 'G', 'H', 'I');
 $values1    = array(0.005, 0.003, 0.002, 0.001, 0.008);
 $values2    = array(0.005, 0.003, 0.002, 0.001, 0.008);
-$chart      = $section->addChart('pie', $categories, $values1);
+$legend     = new \PhpOffice\PhpWord\Element\ChartLegend('r', null, true);
+
+$chart = $section->addChart('pie', $categories, $values1, null, $legend);
+$chart->addSeries($categories, $values2);
+$chart->getStyle()->setWidth(Converter::inchToEmu(2.5))->setHeight(Converter::inchToEmu(5))->set3d(true);
+$section->addTextBreak();
+
+$categories = array('F', 'G', 'H', 'I');
+$values1    = array(0.005, 0.003, 0.002, 0.001, 0.008);
+$values2    = array(0.005, 0.003, 0.002, 0.001, 0.008);
+$legend     = new \PhpOffice\PhpWord\Element\ChartLegend('tr', null, true);
+
+$chart = $section->addChart('pie', $categories, $values1, null, $legend);
+$chart->addSeries($categories, $values2);
+$chart->getStyle()->setWidth(Converter::inchToEmu(2.5))->setHeight(Converter::inchToEmu(5))->set3d(true);
+$section->addTextBreak();
+
+$categories = array('F', 'G', 'H', 'I');
+$values1    = array(0.005, 0.003, 0.002, 0.001, 0.008);
+$values2    = array(0.005, 0.003, 0.002, 0.001, 0.008);
+$legend     = new \PhpOffice\PhpWord\Element\ChartLegend('b', null, true);
+
+$chart = $section->addChart('pie', $categories, $values1, null, $legend);
+$chart->addSeries($categories, $values2);
+$chart->getStyle()->setWidth(Converter::inchToEmu(2.5))->setHeight(Converter::inchToEmu(5))->set3d(true);
+$section->addTextBreak();
+
+$categories = array('F', 'G', 'H', 'I');
+$values1    = array(0.005, 0.003, 0.002, 0.001, 0.008);
+$values2    = array(0.005, 0.003, 0.002, 0.001, 0.008);
+$legend     = new \PhpOffice\PhpWord\Element\ChartLegend('t', null, true);
+
+$chart = $section->addChart('pie', $categories, $values1, null, $legend);
 $chart->addSeries($categories, $values2);
 $chart->getStyle()->setWidth(Converter::inchToEmu(2.5))->setHeight(Converter::inchToEmu(5))->set3d(true);
 $section->addTextBreak();
